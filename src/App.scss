@@ -24,3 +24,12 @@ form>*+* {
         visibility: visible;
     }
 }
+
+.text-field {
+    border: 1px solid currentColor;
+    border-radius: 6px;
+}
+
+.special-input {
+    background: red;
+}

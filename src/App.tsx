@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import "./App.scss";
+import FormField from "./FormField";
 
 function App() {
   const [userType, setUserType] = useState("teacher");
@@ -47,7 +48,7 @@ function App() {
       <form onSubmit={registerUser} noValidate>
         <div className="form-field">
           <label htmlFor="first-name">First name</label>
-          <input
+          <Input
             id="first-name"
             name="firstName"
             type="text"
@@ -57,7 +58,7 @@ function App() {
         </div>
         <div className="form-field">
           <label htmlFor="last-name">Last name</label>
-          <input id="last-name" name="lastName" type="text" required />
+          <Input id="last-name" name="lastName" type="text" required />
         </div>
         <div className="form-field">
           <label htmlFor="user-type">I want to</label>
@@ -92,9 +93,8 @@ type TeacherExtraFieldsProps = {
 function TeacherExtraFields({ expertiseError }: TeacherExtraFieldsProps) {
   return (
     <>
-      <div className="form-field" data-haserror={!!expertiseError}>
-        <label htmlFor="expertise">Expertise</label>
-        <input
+      <FormField label="Expertise" htmlFor="expertise" error={expertiseError}>
+        <Input
           id="expertise"
           name="expertise"
           type="text"
@@ -102,8 +102,7 @@ function TeacherExtraFields({ expertiseError }: TeacherExtraFieldsProps) {
           minLength={3}
           maxLength={100}
         />
-        <p className="error-message">{expertiseError || " "}</p>
-      </div>
+      </FormField>
       <div className="form-field">
         <label htmlFor="teacher-bio">Bio</label>
         <textarea id="teacher-bio" name="teacherBio"></textarea>
@@ -117,10 +116,14 @@ function StudentExtraFields() {
     <>
       <div className="form-field">
         <label htmlFor="interests">Interests</label>
-        <input id="interests" name="interests" type="text" required />
+        <Input id="interests" name="interests" type="text" required />
       </div>
     </>
   );
+}
+
+function Input({ className, ...props }: JSX.IntrinsicElements["input"]) {
+  return <input className={["text-field", className].join(" ")} {...props} />;
 }
 
 export default App;
