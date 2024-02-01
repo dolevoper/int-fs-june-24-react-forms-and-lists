@@ -1,0 +1,23 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: calc(1rem + 0.5vw);
+    line-height: 1.6;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+}
+
+input,
+button,
+textarea,
+select {
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
+}
