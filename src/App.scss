@@ -33,3 +33,25 @@ form>*+* {
 .special-input {
     background: red;
 }
+
+.expertise-entry {
+    display: flex;
+    align-items: center;
+
+    .form-field {
+        flex: 1;
+    }
+
+    >button {
+        margin-top: 0.2rem;
+    }
+}
+
+.cluster {
+    display: flex;
+    flex-wrap: wrap;
+
+    &--right {
+        justify-content: flex-end;
+    }
+}

@@ -3,7 +3,7 @@ import { PropsWithChildren } from "react";
 type FormFieldProps = {
   htmlFor?: string;
   label: string;
-  error: string;
+  error?: string;
 };
 
 export default function FormField({
